@@ -1,13 +1,16 @@
 var express = require("express");
-var path = require("path");
+var routes = require("./routes");
+
 var app = express();
-var router = require("./route");
+
 var PORT = process.env.PORT || 3000;
 
-app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
-app.use(router);
+app.use(routes);
+
+app.listen(PORT, () => console.log(`🐶 => You're on http://localhost:${PORT}`));
 
 
 
