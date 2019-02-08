@@ -7,6 +7,10 @@ router.get("/", function (req, res) {
 
 router.post("/", function (req, res) {
   // INSERT into database the data coming from req.body
+
+  db.query("INSERT INTO notes SET ?", req.body, function (err, results) {
+    res.json(results);
+  })
 });
 
 router.put("/:id", function (req, res) {

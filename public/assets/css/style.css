@@ -39,12 +39,17 @@
 .noteTitle {
   width: 90%;
   float: left;
+  border-radius: 12px;
+  background-color: lightgray;
 }
 
 .noteText {
   width: 90%;
   float: left;
   min-height: 4rem;
+  word-wrap: normal;
+  border-radius: 12px;
+  background-color: lightgray;
 }
 
 .saveNote {
@@ -56,5 +61,6 @@
   border: 1px solid #000;
   border-radius: 12px;
   background-color: lightblue;
+  margin-bottom: 2%;
 }
 
