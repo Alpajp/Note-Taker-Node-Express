@@ -30,3 +30,31 @@
   overflow-x: hidden;
   padding-top: 20px;
 }
+
+.col-4 {
+  border-right: 1px solid gray;
+  height: 100vh;
+}
+
+.noteTitle {
+  width: 90%;
+  float: left;
+}
+
+.noteText {
+  width: 90%;
+  float: left;
+  min-height: 4rem;
+}
+
+.saveNote {
+  float: right;
+  margin-right: 2%;
+}
+
+.newText {
+  border: 1px solid #000;
+  border-radius: 12px;
+  background-color: lightblue;
+}
+
