@@ -30,4 +30,8 @@ $(".saveNote").on("click", function () {
     .then(function(response) {
         console.log(response);
     })
-})
+});
+
+getAndRenderNotes();
+
+$submitBtn.on("click", handleNoteSubmit);

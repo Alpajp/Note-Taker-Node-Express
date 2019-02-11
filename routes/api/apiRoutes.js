@@ -13,7 +13,7 @@ router.post("/", function (req, res) {
   })
 });
 
-router.put("/:id", function (req, res) {
+router.post("/:id", function (req, res) {
   // UPDATE database setting req.body WHERE id = req.params.id
 });
 

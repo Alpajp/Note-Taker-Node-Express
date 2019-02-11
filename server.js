@@ -12,7 +12,5 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(routes);
 
-app.listen(PORT, () => console.log(`🐶 => You're on http://localhost:${PORT}`));
-
-
+app.listen(PORT, function() { console.log(`🐶 => You're on http://localhost:${PORT}`)});
 
