@@ -39,8 +39,8 @@
 .noteTitle {
   width: 90%;
   float: left;
-  border-radius: 12px;
-  background-color: lightgray;
+  margin: 2%;
+  padding: 2%;
 }
 
 .noteText {
@@ -48,8 +48,8 @@
   float: left;
   min-height: 4rem;
   word-wrap: normal;
-  border-radius: 12px;
-  background-color: lightgray;
+  margin: 2%;
+  padding: 2%;
 }
 
 .saveNote {
@@ -59,8 +59,22 @@
 
 .newText {
   border: 1px solid #000;
-  border-radius: 12px;
-  background-color: lightblue;
   margin-bottom: 2%;
 }
 
+.editNote {
+  float: right;
+  margin: 2px;
+}
+
+.deleteNote {
+  float: right;
+  margin: 2px;
+}
+
+.noteDiv {
+  border: 1px solid #000;
+  margin-bottom: 7%;
+  overflow: hidden;
+  padding: 2%;
+}
