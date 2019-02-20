@@ -82,3 +82,22 @@ $(document).on("click", ".editNote", function () {
     //     method: "DELETE"
     // }).then(() => location.reload());
 })
+
+$(document).on("click", "editNote", function () {
+
+    const parent = $(this).parents(".noteDiv");
+    var title = parent.children("div").children("h4");
+    var message = parent.children("div").children("h6");
+    
+    const editNote = `<div  class="newText card">
+                            <div>
+                                <input type="text" placeholder=${title} class="card-title m-2 noteTitle">
+                                <a class="saveNote"> 💾</a>
+                            </div>
+                            <div>
+                                <input type="textarea" placeholder=${message} class="card-body m-2 noteText">
+                            </div>
+                    </div>`
+    
+    parent.html(editNote);
+});

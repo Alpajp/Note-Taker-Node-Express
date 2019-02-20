@@ -17,14 +17,9 @@ router.post("/", function (req, res) {
   })
 })
 
-
-// db.query("INSERT INTO notes SET ?", req.body, function (err, results) {
-//   res.json(results);
-//   })
-// });
-
 router.post("/:id", function (req, res) {
   // UPDATE database setting req.body WHERE id = req.params.id
+  
 });
 
 router.delete("/:id", function (req, res) {
