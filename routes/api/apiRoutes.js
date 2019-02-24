@@ -19,6 +19,12 @@ router.post("/", function (req, res) {
 
 router.post("/:id", function (req, res) {
   // UPDATE database setting req.body WHERE id = req.params.id
+  console.log("id: ", req.params.id);
+  console.log("body: ", req.body);
+  db.query("UPDATE notes SET ? WHERE id = ?", [ req.body, req.params.id ], function (err, results) {
+    if(err) throw err;
+    res.json(results);
+  })
   
 });
 

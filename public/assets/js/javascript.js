@@ -12,7 +12,6 @@ $("#createNote").on("click", function () {
 });
 
 $(document).on("click", ".saveNote", function () {
-    console.log("Pressed saveNote")
     const newNote = {
         title: $(".noteTitle").val().trim(),
         body: $(".noteText").val().trim()
@@ -24,10 +23,10 @@ $(document).on("click", ".saveNote", function () {
 
 
     $.ajax({
-            url: "/api/notes",
-            method: "POST",
-            data: newNote
-        })
+        url: "/api/notes",
+        method: "POST",
+        data: newNote
+    })
         .then(() => location.reload());
 });
 
@@ -41,7 +40,6 @@ function getAndRenderNotes() {
         url: "/api/notes",
         method: "GET"
     }).then(function (results) {
-        console.log(results);
 
         for (let i = 0; i < results.length; i++) {
             var notes = `<div class="noteDiv" id=${results[i].id}>
@@ -57,7 +55,6 @@ function getAndRenderNotes() {
             $(".dbNotes").prepend(notes);
         }
     })
-
 };
 
 $(document).on("click", ".deleteNote", function () {
@@ -70,34 +67,35 @@ $(document).on("click", ".deleteNote", function () {
 });
 
 $(document).on("click", ".editNote", function () {
-    const parent = $(this).parents(".noteDiv");
-    var title = parent.children().children("h4").text();
-    var body= parent.children().children("h6").text();
-    var editTitle = $(`<input class='editTitle' placeholder=${title}>`).text(title);
-    var editbody = $("<input type='text' class='noteText>").text(body);
-    
-    parent.html(editTitle);
-    // $.ajax({
-    //     url: "/api/notes/" + id,
-    //     method: "DELETE"
-    // }).then(() => location.reload());
-})
-
-$(document).on("click", "editNote", function () {
 
     const parent = $(this).parents(".noteDiv");
-    var title = parent.children("div").children("h4");
-    var message = parent.children("div").children("h6");
-    
-    const editNote = `<div  class="newText card">
+    var title = "'" + parent.find("h4").text() + "'";
+    var message = "'" + parent.find("h6").text() + "'";
+
+    const editNote = `<div>
                             <div>
-                                <input type="text" placeholder=${title} class="card-title m-2 noteTitle">
-                                <a class="saveNote"> 💾</a>
-                            </div>
-                            <div>
-                                <input type="textarea" placeholder=${message} class="card-body m-2 noteText">
-                            </div>
+                                <input type="text" value=${title} class="card-title m-2 noteTitle">
+                                </div>
+                                <div>
+                                <input type="textarea" value=${message} class="card-body m-2 noteText">
+                                </div>
+                                <a class="updateNote"> 💾</a>
                     </div>`
-    
+
     parent.html(editNote);
 });
+
+$(document).on("click", ".updateNote", function () {
+
+    const parent = $(this).parents(".noteDiv");
+
+        $.ajax({
+            url: "/api/notes/" + parent.attr("id"),
+            method: "POST",
+            data: {
+                title: parent.find(".noteTitle").val(),
+                body: parent.find(".noteText").val()
+            }
+        })
+            .then(() => location.reload());
+})
