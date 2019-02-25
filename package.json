@@ -4,8 +4,7 @@
   "description": "Note Taker - Node and Express Servers 7th week HW",
   "main": "index.js",
   "scripts": {
-    "heroku-postbuild": "bower install && grunt build",
-    "start": "nf start"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",

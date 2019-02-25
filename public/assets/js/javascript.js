@@ -40,6 +40,7 @@ function getAndRenderNotes() {
         url: "/api/notes",
         method: "GET"
     }).then(function (results) {
+        
 
         for (let i = 0; i < results.length; i++) {
             var notes = `<div class="noteDiv" id=${results[i].id}>
