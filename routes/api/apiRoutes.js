@@ -3,11 +3,13 @@ const db = require("../../db/connection");
 
 router.get("/", function (req, res) {
   // query database for all notes and send back as json
-  db.query("SELECT * FROM notes", function (err, results) {
+ const query = db.query("SELECT * FROM notes", function (err, results) {
     if (err) throw err;
-
+    
+    console.log(results);
     res.json(results);
   });
+  console.log(query.sql);
 });
 
 router.post("/", function (req, res) {
