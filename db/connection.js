@@ -9,7 +9,7 @@ if (process.env.JAWSDB_URL) {
   connection = mysql.createConnection({
     host: "localhost",
     user: "root",
-    password: "root",
+    password: "Root",
     database: "NoteTaker_db"
   });
 }
